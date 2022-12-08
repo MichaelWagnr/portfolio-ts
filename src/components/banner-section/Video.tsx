@@ -1,9 +1,77 @@
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { imageSequence } from './ImageSequence'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Video() {
+	const canvasRef = useRef()
+	const videoSequenceTriggerRef = useRef()
+
+	useEffect(() => {
+		const canvas = canvasRef.current as HTMLCanvasElement
+		console.log(canvas)
+		const ctx = canvas.getContext('2d')
+
+		canvas.width = 3840
+		canvas.height = 2160
+		// canvas.width = document.body.clientWidth
+		// canvas.height = document.body.clientHeight
+
+		const frameCount = 140
+		const currentFrame = (index) => {
+			return imageSequence[index]
+		}
+
+		const sequence = {
+			frame: 0,
+		}
+
+		const images = []
+
+		imageSequence.forEach((element, index) => {
+			const img = new Image()
+			img.src = currentFrame(index)
+			images.push(img)
+		})
+
+		// console.log(images)
+		// images[0].onload = () => {
+		// 	ctx.drawImage(images[0], 0, 0)
+		// }
+
+		gsap.to(sequence, {
+			frame: frameCount - 1,
+			snap: 'frame',
+			scrollTrigger: {
+				trigger: videoSequenceTriggerRef.current,
+				start: 'top center',
+				// end: '+=500',
+				// end: () =>
+				// 	'+=' + videoSequenceTriggerRef.current.offsetHeight.toString(),
+				end: '+=8000',
+				scrub: 0.5,
+				// anticipatePin: true,
+				// pin: true,
+				markers: true,
+			},
+			onUpdate: updateImage,
+		})
+
+		images[0].onload = updateImage
+
+		function updateImage(index) {
+			ctx.clearRect(0, 0, canvas.width, canvas.height)
+			ctx.drawImage(images[sequence.frame], 0, 0)
+		}
+	}, [])
+
 	return (
-		<Container>
-			<video
+		<Container ref={videoSequenceTriggerRef}>
+			{/* <img src={imageSequence[0]} /> */}
+			{/* <video
 				autoPlay
 				muted
 				loop
@@ -14,7 +82,8 @@ function Video() {
 					// target.playbackRate = 0.4
 				}}>
 				<source src="mtl.mp4" type="video/mp4" />
-			</video>
+			</video> */}
+			<canvas ref={canvasRef} id="video"></canvas>
 			<Filter></Filter>
 		</Container>
 	)
@@ -23,16 +92,18 @@ function Video() {
 const Container = styled.div`
 	width: 100vw;
 	overflow: hidden;
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
 
 	#video {
 		overflow-x: hidden;
 		width: 1440px;
-		height: calc(100vh + 20px);
+		height: calc(100vh + 100px);
 		z-index: -2;
-		position: absolute;
+		position: fixed;
 		left: 0px;
-		top: 0px;
+		top: -100px;
 		filter: brightness(70%);
 	}
 `
@@ -40,7 +111,9 @@ const Container = styled.div`
 const Filter = styled.div`
 	width: 100vw;
 	height: 100vh;
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
 	z-index: 10;
 	filter: contrast(300%) brightness(60%);
 	background: rgb(0, 3, 197)

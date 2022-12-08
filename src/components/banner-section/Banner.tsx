@@ -6,13 +6,13 @@ function Banner() {
 		<>
 			<Video />
 			<Container>
-				{/* <Avatar src="/popnobg.png" /> */}
-				{/* <Avatar src="/mtlnobg.png" /> */}
-				{/* <div className="main">
+				<Avatar src="/popnobg.png" />
+				<img className="mtl" src="/mtlnobg.png" />
+				<div className="main">
 					<h1>Hi, I'm Michael Wagner</h1>
 					<p className="h4">a Montréal-based</p>
 					<p className="h1">Web Developer</p>
-				</div> */}
+				</div>
 			</Container>
 		</>
 	)
@@ -27,8 +27,16 @@ const Container = styled.section`
 	height: 100vh;
 	display: grid;
 	place-content: center;
-
 	color: white;
+
+	grid-template-columns: 1fr 1fr;
+	position: fixed;
+	.mtl {
+		width: 200px;
+		position: relative;
+		bottom: 150px;
+		left: 500px;
+	}
 `
 
 const Avatar = styled.img`
