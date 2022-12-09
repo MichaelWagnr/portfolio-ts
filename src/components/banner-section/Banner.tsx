@@ -40,7 +40,7 @@ function Banner() {
 			scrollTrigger: {
 				trigger: containerRef.current,
 				start: 'top',
-				// end: 'end',
+				end: '+=7000',
 				markers: true,
 				id: 'fg',
 				scrub: true,
@@ -55,16 +55,21 @@ function Banner() {
 			.fromTo(
 				expoLogoRef.current,
 				{ opacity: 0, rotation: -90 },
-				{ opacity: 1, rotation: 0, delay: 0.5 },
+				{ opacity: 1, rotation: 0, duration: 1, delay: 0.1 },
 				'logo'
 			)
 			.fromTo(
 				mtlLogoRef.current,
 				{ opacity: 0, rotation: -90 },
-				{ opacity: 1, rotation: 0, delay: 0.5 },
+				{ opacity: 1, rotation: 0, duration: 1, delay: 0.1 },
 				'<'
 			)
-			.fromTo(listAEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listA')
+			.fromTo(
+				listAEnRef.current,
+				{ opacity: 0 },
+				{ opacity: 1, delay: 8 },
+				'listA'
+			)
 			.fromTo(listAFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
 			.fromTo(listBEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listB')
 			.fromTo(listBFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
@@ -74,27 +79,40 @@ function Banner() {
 			.fromTo(listDFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
 			.fromTo(listEEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listE')
 			.fromTo(listEFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
-			.to(frRef.current, { opacity: 0, top: 100 }, 'transition')
-			.to(enRef.current, { opacity: 0, top: 100 }, 'transition')
+			.to(
+				frRef.current,
+				{ opacity: 0, top: 100, duration: 2, delay: 4 },
+				'transition'
+			)
+			.to(
+				enRef.current,
+				{ opacity: 0, top: 100, duration: 2, delay: 4 },
+				'transition'
+			)
 			.fromTo(
 				avatarRef.current,
 				{ top: 0, right: 0 },
-				{ top: 150, right: 250 },
+				{ top: 150, right: 250, duration: 2, delay: 4 },
 				'transition'
 			)
 			.fromTo(
 				techRef.current,
 				{ opacity: 0, top: 200 },
-				{ opacity: 1, top: 140 },
+				{ opacity: 1, top: 140, duration: 2, delay: 4 },
 				'transition'
 			)
-			.to(techRef.current, { opacity: 0 })
+			.to(techRef.current, { opacity: 0, delay: 8 })
 			.to(
 				avatarRef.current,
-				{ top: 40, right: 0, border: '1px solid var(--primary-fg-dark)' },
+				{
+					top: 40,
+					right: 0,
+					border: '0.2px solid var(--primary-fg-dark)',
+					duration: 2,
+				},
 				'end'
 			)
-			.to(fadeOutRef.current, { opacity: 1 })
+			.to(fadeOutRef.current, { opacity: 1, duration: 2 }, 'end')
 	}, [])
 
 	return (
