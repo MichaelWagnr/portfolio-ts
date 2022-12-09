@@ -53,6 +53,7 @@ function Video() {
 				// 	'+=' + videoSequenceTriggerRef.current.offsetHeight.toString(),
 				end: '+=8000',
 				scrub: 0.5,
+				id: 'bg',
 				// anticipatePin: true,
 				// pin: true,
 				markers: true,
@@ -104,7 +105,7 @@ const Container = styled.div`
 		position: fixed;
 		left: 0px;
 		top: -100px;
-		filter: brightness(70%);
+		filter: brightness(85%);
 	}
 `
 
