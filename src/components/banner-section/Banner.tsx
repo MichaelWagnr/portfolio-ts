@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Video from './Video'
+import Links from './Links'
 import TechStack from './TechStack'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -12,6 +13,8 @@ function Banner() {
 	const fadeOutRef = useRef()
 
 	const avatarRef = useRef()
+	const scrollBarRef = useRef()
+	const linksRef = useRef()
 	const techRef = useRef()
 
 	const enRef = useRef()
@@ -41,13 +44,19 @@ function Banner() {
 				trigger: containerRef.current,
 				start: 'top',
 				end: '+=7000',
-				markers: true,
+				// markers: true,
 				id: 'fg',
 				scrub: true,
 			},
 		})
 
-		tl.fromTo(avatarRef.current, { top: 150 }, { top: 0 })
+		tl.to(avatarRef.current, { top: 0 }, 'start')
+			.to(
+				linksRef.current,
+				{ opacity: 0, visibility: 'hidden', duration: 1 },
+				'<'
+			)
+			.to(scrollBarRef.current, { opacity: 0 }, '<')
 			.fromTo(nameEnRef.current, { opacity: 0 }, { opacity: 1 }, 'name')
 			.fromTo(nameFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
 			.fromTo(titleEnRef.current, { opacity: 0 }, { opacity: 1 }, 'title')
@@ -105,24 +114,28 @@ function Banner() {
 			.to(
 				avatarRef.current,
 				{
-					top: 40,
+					top: 0,
 					right: 0,
-					border: '0.2px solid var(--primary-fg-dark)',
+					border: '2px solid white',
 					duration: 2,
 				},
 				'end'
 			)
 			.to(fadeOutRef.current, { opacity: 1, duration: 2 }, 'end')
+			.to(linksRef.current, { opacity: 1, visibility: 'visible' })
 	}, [])
 
 	return (
-		<>
+		<TimeLine>
 			<Video />
 			<Container ref={containerRef}>
 				<Avatar ref={avatarRef} src="/popnobg.png" className="" />
-				<Tech ref={techRef}>
+				<LinkContainer ref={linksRef}>
+					<Links />
+				</LinkContainer>
+				<TechContainer ref={techRef}>
 					<TechStack />
-				</Tech>
+				</TechContainer>
 				<English ref={enRef}>
 					<Name ref={nameEnRef} className="en">
 						Michael Wagner
@@ -173,16 +186,20 @@ function Banner() {
 				</French>
 			</Container>
 			<FadeOut ref={fadeOutRef}></FadeOut>
-			<ScrollInfo>
+			<ScrollInfo ref={scrollBarRef}>
 				<img src="metronobg.png" />
 				<span>Scroll Gently</span>
 				<div></div>
 				<span>Scrollez Doucement</span>
 				<img src="metronobg.png" />
 			</ScrollInfo>
-		</>
+		</TimeLine>
 	)
 }
+
+const TimeLine = styled.div`
+	height: 8000px;
+`
 
 const Container = styled.section`
 	position: fixed;
@@ -223,29 +240,37 @@ const Avatar = styled.img`
 	grid-column: 1 / span 2;
 
 	position: relative;
-	top: 150px;
-
-	&.left {
-		grid-column: 1;
-	}
+	/* top: 150px; */
 `
 
-const Tech = styled.div`
+const LinkContainer = styled.div`
+	grid-column: 1 / span 2;
+	grid-row: 2;
+	margin-top: -70px;
+	display: grid;
+	justify-content: center;
+`
+
+const TechContainer = styled.div`
 	width: 400px;
 	height: 400px;
 	grid-row: 1;
 	grid-column: 2;
-	opacity: 0.2;
+	opacity: 0;
 `
 
 const English = styled.div`
 	position: relative;
 	top: -40px;
+	grid-row: 2;
+	grid-column: 1;
 `
 
 const French = styled.div`
 	position: relative;
 	top: -40px;
+	grid-row: 2;
+	grid-column: 2;
 `
 
 const Name = styled.h1`
@@ -317,10 +342,14 @@ const ScrollInfo = styled.div`
 	}
 
 	img {
-		width: 20px;
-		height: 20px;
+		width: 27px;
+		height: 27px;
 		opacity: 0.8;
 		margin: 10px;
+	}
+
+	span {
+		font-size: var(--p);
 	}
 `
 
@@ -333,6 +362,7 @@ const FadeOut = styled.div`
 	opacity: 0;
 	z-index: 0;
 	background-color: black;
+	pointer-events: none;
 `
 
 export default Banner
