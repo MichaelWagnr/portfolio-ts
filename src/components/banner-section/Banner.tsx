@@ -246,7 +246,7 @@ const Avatar = styled.img`
 const LinkContainer = styled.div`
 	grid-column: 1 / span 2;
 	grid-row: 2;
-	margin-top: -70px;
+	margin-top: -80px;
 	display: grid;
 	justify-content: center;
 `

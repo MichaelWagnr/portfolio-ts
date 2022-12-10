@@ -6,13 +6,18 @@ function Links() {
 	return (
 		<Container>
 			<ExternalLinks>
-				<a href="#">
+				<a href="https://www.linkedin.com/in/michael-wagner-9339881a0/">
 					<GrLinkedinOption className="icon" />
 				</a>
-				<a>
+				<a href="https://github.com/MichaelWagnr">
 					<GrGithub className="icon" />
 				</a>
-				<a>
+				<a
+					href="./MichaelWagner_CV_EN.pdf"
+					target="_blank"
+					type="application/pdf"
+					rel="alternate"
+					media="print">
 					<GrDocumentPdf className="icon" />
 				</a>
 			</ExternalLinks>
