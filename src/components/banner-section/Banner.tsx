@@ -199,13 +199,19 @@ function Banner() {
 
 const TimeLine = styled.div`
 	height: 8000px;
+
+	/* @media only screen and (max-width: 920px) {
+		--h1: 1.802rem;
+		--h2: 1.602rem;
+		--h4: 1.266rem;
+	} */
 `
 
 const Container = styled.section`
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding: 50px 200px;
+	padding: 50px auto;
 	width: 100vw;
 	height: 100vh;
 	display: grid;
@@ -224,6 +230,13 @@ const Container = styled.section`
 
 	.list {
 		margin-top: -20px;
+	}
+
+	@media only screen and (max-width: 920px) {
+		grid-template-rows: 1fr 1fr 1fr;
+		.list {
+			display: none;
+		}
 	}
 `
 
@@ -264,6 +277,12 @@ const English = styled.div`
 	top: -40px;
 	grid-row: 2;
 	grid-column: 1;
+
+	@media only screen and (max-width: 920px) {
+		grid-row: 2;
+		grid-column: 1 / span 2;
+		justify-self: center;
+	}
 `
 
 const French = styled.div`
@@ -271,6 +290,14 @@ const French = styled.div`
 	top: -40px;
 	grid-row: 2;
 	grid-column: 2;
+
+	@media only screen and (max-width: 920px) {
+		grid-row: 3;
+		grid-column: 1 / span 2;
+		justify-self: center;
+		right: 45px;
+		margin-top: -40px;
+	}
 `
 
 const Name = styled.h1`
