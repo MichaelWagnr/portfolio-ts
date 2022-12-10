@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { GrDocumentPdf, GrGithub, GrLinkedinOption } from 'react-icons/gr'
+import { RiMailSendLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 
 function Links() {
@@ -21,11 +22,16 @@ function Links() {
 					<GrDocumentPdf className="icon" />
 				</a>
 			</ExternalLinks>
-			<Link to="/work" className="internal">
+			<ExternalLinks>
+				<a href="mailto:michaelwagner780@gmail.com?subject = Portfolio Contact: ">
+					<RiMailSendLine className="icon" />
+				</a>
+			</ExternalLinks>
+			<Link to="/portfolio" className="internal">
 				Selected Works
 			</Link>
-			<Link to="/work" className="internal">
-				Contact Me
+			<Link to="/about" className="internal">
+				About Me
 			</Link>
 		</Container>
 	)
@@ -81,7 +87,7 @@ const Container = styled.div`
 
 const ExternalLinks = styled.div`
 	width: fit-content;
-	margin: 0px auto 40px;
+	margin: -15px auto 40px;
 `
 
 export default Links

@@ -5,10 +5,13 @@ import TechStack from './TechStack'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
+import MobileBG from './MobileBG'
 
 gsap.registerPlugin(ScrollTrigger)
 
 function Banner() {
+	const isDesktop = window.matchMedia('(min-width: 759px)').matches
+
 	const containerRef = useRef()
 	const fadeOutRef = useRef()
 
@@ -64,13 +67,13 @@ function Banner() {
 			.fromTo(
 				expoLogoRef.current,
 				{ opacity: 0, rotation: -90 },
-				{ opacity: 1, rotation: 0, duration: 1, delay: 0.1 },
+				{ opacity: isDesktop ? 1 : 0.6, rotation: 0, duration: 1, delay: 0.1 },
 				'logo'
 			)
 			.fromTo(
 				mtlLogoRef.current,
 				{ opacity: 0, rotation: -90 },
-				{ opacity: 1, rotation: 0, duration: 1, delay: 0.1 },
+				{ opacity: isDesktop ? 1 : 0.6, rotation: 0, duration: 1, delay: 0.1 },
 				'<'
 			)
 			.fromTo(
@@ -101,13 +104,30 @@ function Banner() {
 			.fromTo(
 				avatarRef.current,
 				{ top: 0, right: 0 },
-				{ top: 150, right: 250, duration: 2, delay: 4 },
+				{
+					top: isDesktop ? 150 : 0,
+					right: isDesktop ? 250 : 0,
+					duration: 2,
+					delay: 4,
+				},
 				'transition'
 			)
 			.fromTo(
 				techRef.current,
-				{ opacity: 0, top: 200 },
-				{ opacity: 1, top: 140, duration: 2, delay: 4 },
+				{
+					opacity: 0,
+					top: isDesktop ? 200 : 500,
+					gridColumn: isDesktop ? '' : '1 / span 2',
+					alignSelf: isDesktop ? '' : 'center',
+				},
+				{
+					opacity: 1,
+					top: isDesktop ? 140 : 280,
+					gridColumn: isDesktop ? '' : '1 / span 2',
+					alignSelf: isDesktop ? '' : 'center',
+					duration: 2,
+					delay: 4,
+				},
 				'transition'
 			)
 			.to(techRef.current, { opacity: 0, delay: 8 })
@@ -127,7 +147,7 @@ function Banner() {
 
 	return (
 		<TimeLine>
-			<Video />
+			{isDesktop ? <Video /> : <MobileBG />}
 			<Container ref={containerRef}>
 				<Avatar ref={avatarRef} src="/popnobg.png" className="" />
 				<LinkContainer ref={linksRef}>
@@ -136,11 +156,15 @@ function Banner() {
 				<TechContainer ref={techRef}>
 					<TechStack />
 				</TechContainer>
-				<English ref={enRef}>
-					<Name ref={nameEnRef} className="en">
+				<English ref={enRef} className={isDesktop ? null : 'mobile-view'}>
+					<Name
+						ref={nameEnRef}
+						className={isDesktop ? 'h1 en' : 'h2 en mobile'}>
 						Michael Wagner
 					</Name>
-					<Title ref={titleEnRef} className="h1 en">
+					<Title
+						ref={titleEnRef}
+						className={isDesktop ? 'h1 en' : 'h2 en mobile'}>
 						Full Stack Developer
 					</Title>
 					<p ref={listAEnRef} className="h2 list">
@@ -158,13 +182,21 @@ function Banner() {
 					<p ref={listEEnRef} className="h2 list">
 						⋅Introvert
 					</p>
-					<ExpoLogo ref={expoLogoRef} className="mtl" src="/exponobg5.png" />
+					<ExpoLogo
+						ref={expoLogoRef}
+						className={isDesktop ? 'mtl' : 'mtl mobile-expo'}
+						src="/exponobg5.png"
+					/>
 				</English>
-				<French ref={frRef}>
-					<Name ref={nameFrRef} className="fr">
+				<French ref={frRef} className={isDesktop ? null : 'mobile-view'}>
+					<Name
+						ref={nameFrRef}
+						className={isDesktop ? 'h1 fr' : 'h2 fr mobile'}>
 						Michael Wagner
 					</Name>
-					<Title ref={titleFrRef} className="h1 fr">
+					<Title
+						ref={titleFrRef}
+						className={isDesktop ? 'h1 fr' : 'h2 fr mobile'}>
 						Développeur
 					</Title>
 					<p ref={listAFrRef} className="h2 list">
@@ -182,7 +214,11 @@ function Banner() {
 					<p ref={listEFrRef} className="h2 list">
 						⋅Introverti
 					</p>
-					<MtlLogo ref={mtlLogoRef} className="mtl" src="/mtlnobg.png" />
+					<MtlLogo
+						ref={mtlLogoRef}
+						className={isDesktop ? 'mtl' : 'mtl mobile-mtl'}
+						src="/mtlnobg.png"
+					/>
 				</French>
 			</Container>
 			<FadeOut ref={fadeOutRef}></FadeOut>
@@ -219,7 +255,6 @@ const Container = styled.section`
 	color: white;
 	z-index: 2;
 
-	/* gap: 20px; */
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 
@@ -259,7 +294,7 @@ const Avatar = styled.img`
 const LinkContainer = styled.div`
 	grid-column: 1 / span 2;
 	grid-row: 2;
-	margin-top: -80px;
+	margin-top: -60px;
 	display: grid;
 	justify-content: center;
 `
@@ -283,6 +318,16 @@ const English = styled.div`
 		grid-column: 1 / span 2;
 		justify-self: center;
 	}
+
+	&.mobile-view {
+		grid-row: 2;
+		grid-column: 1 / span 2;
+		justify-self: center;
+
+		p {
+			display: none;
+		}
+	}
 `
 
 const French = styled.div`
@@ -298,6 +343,18 @@ const French = styled.div`
 		right: 45px;
 		margin-top: -40px;
 	}
+
+	&.mobile-view {
+		grid-row: 3;
+		grid-column: 1 / span 2;
+		justify-self: center;
+		margin-top: -80px;
+		margin-left: 10px;
+
+		p {
+			display: none;
+		}
+	}
 `
 
 const Name = styled.h1`
@@ -312,13 +369,17 @@ const Name = styled.h1`
 		left: 2px;
 	}
 
+	&.mobile::before {
+		bottom: 40px;
+	}
+
 	&.fr::before {
 		content: 'Salut, mon nom est';
 		color: var(--secondary-fg-light);
 	}
 `
 
-const Title = styled.p`
+const Title = styled.h2`
 	position: relative;
 
 	&::before {
@@ -327,6 +388,10 @@ const Title = styled.p`
 		color: var(--tertiary-fg-light);
 		position: absolute;
 		bottom: 50px;
+	}
+
+	&.mobile::before {
+		bottom: 40px;
 	}
 
 	&.fr::before {
@@ -342,6 +407,12 @@ const MtlLogo = styled.img`
 	left: 247px;
 	z-index: -1;
 	opacity: 0.7;
+
+	&.mobile-mtl {
+		width: 250px;
+		left: 0;
+		top: -85px;
+	}
 `
 
 const ExpoLogo = styled.img`
@@ -350,6 +421,12 @@ const ExpoLogo = styled.img`
 	top: -29px;
 	left: 247px;
 	z-index: -1;
+
+	&.mobile-expo {
+		width: 250px;
+		left: 160px;
+		top: -85px;
+	}
 `
 
 const ScrollInfo = styled.div`
