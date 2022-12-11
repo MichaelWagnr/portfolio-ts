@@ -47,23 +47,23 @@ function Banner() {
 				trigger: containerRef.current,
 				start: 'top',
 				end: '+=7000',
-				// markers: true,
 				id: 'fg',
 				scrub: true,
 			},
 		})
-
+		//*  ======================================================================
+		//   Animation starts =====================================================
 		tl.to(avatarRef.current, { top: 0 }, 'start')
-			.to(
-				linksRef.current,
-				{ opacity: 0, visibility: 'hidden', duration: 1 },
-				'<'
-			)
+			// Nav disappears =======================================================
+			.to(linksRef.current, { opacity: 0, visibility: 'hidden' }, '<')
 			.to(scrollBarRef.current, { opacity: 0 }, '<')
-			.fromTo(nameEnRef.current, { opacity: 0 }, { opacity: 1 }, 'name')
-			.fromTo(nameFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
-			.fromTo(titleEnRef.current, { opacity: 0 }, { opacity: 1 }, 'title')
-			.fromTo(titleFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
+			// Name appears =========================================================
+			.to(nameEnRef.current, { opacity: 1 }, 'name')
+			.to(nameFrRef.current, { opacity: 1 }, '<')
+			// Main Title appears ===================================================
+			.to(titleEnRef.current, { opacity: 1 }, 'title')
+			.to(titleFrRef.current, { opacity: 1 }, '<')
+			// Montreal and Expo67 logo appear and rotate ===========================
 			.fromTo(
 				expoLogoRef.current,
 				{ opacity: 0, rotation: -90 },
@@ -76,21 +76,18 @@ function Banner() {
 				{ opacity: isDesktop ? 1 : 0.6, rotation: 0, duration: 1, delay: 0.1 },
 				'<'
 			)
-			.fromTo(
-				listAEnRef.current,
-				{ opacity: 0 },
-				{ opacity: 1, delay: 8 },
-				'listA'
-			)
-			.fromTo(listAFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
-			.fromTo(listBEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listB')
-			.fromTo(listBFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
-			.fromTo(listCEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listC')
-			.fromTo(listCFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
-			.fromTo(listDEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listD')
-			.fromTo(listDFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
-			.fromTo(listEEnRef.current, { opacity: 0 }, { opacity: 1 }, 'listE')
-			.fromTo(listEFrRef.current, { opacity: 0 }, { opacity: 1 }, '<')
+			// List of addition titles stagger in ===================================
+			.to(listAEnRef.current, { opacity: 1, delay: 8 }, 'listA')
+			.to(listAFrRef.current, { opacity: 1 }, '<')
+			.to(listBEnRef.current, { opacity: 1 }, 'listB')
+			.to(listBFrRef.current, { opacity: 1 }, '<')
+			.to(listCEnRef.current, { opacity: 1 }, 'listC')
+			.to(listCFrRef.current, { opacity: 1 }, '<')
+			.to(listDEnRef.current, { opacity: 1 }, 'listD')
+			.to(listDFrRef.current, { opacity: 1 }, '<')
+			.to(listEEnRef.current, { opacity: 1 }, 'listE')
+			.to(listEFrRef.current, { opacity: 1 }, '<')
+			// Name, Title and Logos descend and disappear ==========================
 			.to(
 				frRef.current,
 				{ opacity: 0, top: 100, duration: 2, delay: 4 },
@@ -101,6 +98,7 @@ function Banner() {
 				{ opacity: 0, top: 100, duration: 2, delay: 4 },
 				'transition'
 			)
+			// Avatar moves down and left ===========================================
 			.fromTo(
 				avatarRef.current,
 				{ top: 0, right: 0 },
@@ -112,6 +110,7 @@ function Banner() {
 				},
 				'transition'
 			)
+			// Tech icons appears and moves up into place ===========================
 			.fromTo(
 				techRef.current,
 				{
@@ -130,7 +129,9 @@ function Banner() {
 				},
 				'transition'
 			)
+			// Tech icons disappear =================================================
 			.to(techRef.current, { opacity: 0, delay: 8 })
+			// Avatar moves to center & Background fades to black ===================
 			.to(
 				avatarRef.current,
 				{
@@ -142,7 +143,10 @@ function Banner() {
 				'end'
 			)
 			.to(fadeOutRef.current, { opacity: 1, duration: 2 }, 'end')
+			// Nav reappears ========================================================
 			.to(linksRef.current, { opacity: 1, visibility: 'visible' })
+		//   Animation ends =======================================================
+		//*  ======================================================================
 	}, [])
 
 	return (
@@ -235,12 +239,6 @@ function Banner() {
 
 const TimeLine = styled.div`
 	height: 8000px;
-
-	/* @media only screen and (max-width: 920px) {
-		--h1: 1.802rem;
-		--h2: 1.602rem;
-		--h4: 1.266rem;
-	} */
 `
 
 const Container = styled.section`
@@ -264,6 +262,7 @@ const Container = styled.section`
 	}
 
 	.list {
+		opacity: 0;
 		margin-top: -20px;
 	}
 
@@ -272,6 +271,10 @@ const Container = styled.section`
 		.list {
 			display: none;
 		}
+	}
+
+	@media only screen and (max-width: 499px) {
+		margin-top: -60px;
 	}
 `
 
@@ -288,7 +291,6 @@ const Avatar = styled.img`
 	grid-column: 1 / span 2;
 
 	position: relative;
-	/* top: 150px; */
 `
 
 const LinkContainer = styled.div`
@@ -359,6 +361,7 @@ const French = styled.div`
 
 const Name = styled.h1`
 	position: relative;
+	opacity: 0;
 
 	&::before {
 		content: 'Hello, my name is';
@@ -381,6 +384,7 @@ const Name = styled.h1`
 
 const Title = styled.h2`
 	position: relative;
+	opacity: 0;
 
 	&::before {
 		content: 'I am a Montréal-based';

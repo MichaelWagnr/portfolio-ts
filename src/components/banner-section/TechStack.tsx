@@ -22,7 +22,10 @@ function TechStack() {
 	return (
 		<Container>
 			<StackIcons>
-				<p>I'm fond of</p>
+				<p>
+					<span className="en">I'm fond of </span>
+					<span className="fr">J'aime</span>
+				</p>
 				<TypeScript />
 				{/* <SiTypescript className="large" /> */}
 				<SiReact className="large" />
@@ -31,12 +34,18 @@ function TechStack() {
 					<SiStyledcomponents className="large" />
 					<p>components</p>
 				</div>
-				<p>I often use</p>
+				<p>
+					<span className="en">I often use </span>
+					<span className="fr">J'utilize souvent</span>
+				</p>
 				<SiJavascript className="medium" />
 				<SiMongodb className="medium" />
 				<SiExpress className="medium" />
 				<FaNode className="medium" />
-				<p>I work comfortably with</p>
+				<p>
+					<span className="en">I understand </span>
+					<span className="fr">Je connais</span>
+				</p>
 				<SiGit className="small" />
 				<SiVisualstudiocode className="small" />
 				<SiFigma className="small" />
@@ -71,6 +80,10 @@ const StackIcons = styled.div`
 
 	p {
 		font-size: var(--h5);
+	}
+
+	.fr {
+		color: var(--secondary-fg-light);
 	}
 
 	.sc {
