@@ -28,10 +28,14 @@ function Links() {
 				</a>
 			</ExternalLinks>
 			<Link to="/portfolio" className="internal">
-				Selected Works
+				<span className="en">Selected Works</span>
+				<br />
+				<span className="fr">Mes réalisations</span>
 			</Link>
 			<Link to="/about" className="internal">
-				About Me
+				<span className="en">About me</span>
+				<br />
+				<span className="fr">À propos de moi</span>
 			</Link>
 		</Container>
 	)
@@ -51,12 +55,12 @@ const Container = styled.div`
 
 		&:hover {
 			cursor: pointer;
-			border: 2px solid var(--secondary-fg-light);
-			color: var(--secondary-fg-light);
+			border: 2px solid var(--secondary-fg);
+			color: var(--secondary-fg);
 			* {
-				color: var(--secondary-fg-light);
+				color: var(--secondary-fg);
 				path {
-					stroke: var(--secondary-fg-light);
+					stroke: var(--secondary-fg);
 				}
 			}
 		}
@@ -65,11 +69,11 @@ const Container = styled.div`
 	a.internal {
 		border-radius: 5px;
 		display: block;
-		padding: 10px;
+		padding: 5px;
 		margin-bottom: 15px;
 		text-align: center;
 		text-decoration: none;
-		font-size: var(--h5);
+		font-size: var(--p);
 	}
 
 	.icon {
@@ -82,6 +86,10 @@ const Container = styled.div`
 			stroke: var(--primary-fg-light);
 			pointer-events: none;
 		}
+	}
+
+	.fr {
+		color: var(--secondary-fg-light);
 	}
 `
 

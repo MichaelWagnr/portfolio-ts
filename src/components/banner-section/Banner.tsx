@@ -104,7 +104,7 @@ function Banner() {
 				{ top: 0, right: 0 },
 				{
 					top: isDesktop ? 150 : 0,
-					right: isDesktop ? 250 : 0,
+					right: isDesktop ? 200 : 0, //250 before
 					duration: 2,
 					delay: 4,
 				},
@@ -116,6 +116,7 @@ function Banner() {
 				{
 					opacity: 0,
 					top: isDesktop ? 200 : 500,
+					right: isDesktop ? 40 : '',
 					gridColumn: isDesktop ? '' : '1 / span 2',
 					alignSelf: isDesktop ? '' : 'center',
 				},
