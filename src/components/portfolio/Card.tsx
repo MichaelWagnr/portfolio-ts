@@ -140,7 +140,8 @@ const Links = styled.div`
 	width: 100%;
 	height: 50px;
 	display: flex;
-	justify-content: space-evenly;
+	gap: 10px;
+	justify-content: center;
 	a {
 		width: 50px;
 		height: 50px;
