@@ -34,17 +34,23 @@ function ProjectDetails() {
 			</Banner>
 			<Details>
 				<img src="/patchdiverbrowser.png" className="browser-view" />
-				<p className="heading">Description:</p>
-				<p>
-					Patch Diver is an online patch editor for hardware synthesizers. With
-					the ability to load, save, share and browse sounds.
-				</p>
-				<p className="heading">Story:</p>
-				<p>...</p>
-				<p className="heading">Challenges:</p>
-				<p>...</p>
-				<p className="heading">Future plans:</p>
-				<p>...</p>
+				<div className="info">
+					<p className="heading">Description:</p>
+					<p>
+						Patch Diver is an online patch editor for hardware synthesizers.
+						With the ability to load, save, share and browse sounds.
+					</p>
+					<p className="heading">Story:</p>
+					<p>...</p>
+					<p className="heading">Challenges:</p>
+					<p>...</p>
+					<p className="heading">Future plans:</p>
+					<p>...</p>
+				</div>
+				<div className="extra-details">
+					<p className="heading">Links:</p>
+					<p>...</p>
+				</div>
 			</Details>
 		</Container>
 	)
@@ -78,7 +84,11 @@ const Banner = styled.div`
 `
 
 const Details = styled.div`
-	padding: 10px;
+	padding: 20px;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 4fr 2fr;
+	grid-template-rows: max-content 1fr;
 
 	.heading {
 		margin: 3px 0;
@@ -86,6 +96,8 @@ const Details = styled.div`
 	}
 
 	.browser-view {
+		grid-row: 1;
+		grid-column: 1 / span 2;
 		width: 100%;
 		border-radius: 10px;
 		box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;

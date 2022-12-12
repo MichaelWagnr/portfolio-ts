@@ -11,13 +11,13 @@ function Header() {
 			</Link>
 			<Link to="/portfolio" className="internal">
 				<span className="en">Selected Works</span>
-				<br />
-				<span className="fr">Mes réalisations</span>
+				{/* <br /> */}
+				{/* <span className="fr">Mes réalisations</span> */}
 			</Link>
 			<Link to="/about" className="internal">
 				<span className="en">About me</span>
-				<br />
-				<span className="fr">À propos de moi</span>
+				{/* <br /> */}
+				{/* <span className="fr">À propos de moi</span> */}
 			</Link>
 			<div className="spacer"></div>
 			<a href="https://www.linkedin.com/in/michael-wagner-9339881a0/">
@@ -46,7 +46,7 @@ const Container = styled.div`
 	height: 70px;
 	display: flex;
 	z-index: 1;
-	position: absolute;
+	position: fixed;
 	background-color: var(--primary-bg-light);
 	align-items: center;
 	justify-content: end;
@@ -70,7 +70,7 @@ const Container = styled.div`
 
 		&:hover {
 			cursor: pointer;
-			border-color: var(--secondary-fg);
+			border-color: var(--secondary-fg-light);
 			color: var(--secondary-fg);
 			* {
 				color: var(--secondary-fg);
@@ -87,10 +87,10 @@ const Container = styled.div`
 		border-radius: 5px;
 		display: block;
 		text-decoration: none;
-		font-size: var(--h6);
+		font-size: var(--p);
 
 		&:hover {
-			border: 1px solid var(--secondary-fg);
+			border: 1px solid var(--secondary-fg-light);
 		}
 	}
 
