@@ -6,10 +6,13 @@ import ProjectDetails from './ProjectDetails'
 
 function Portfolio() {
 	return (
-		<>
+		<Container>
 			<Header />
 			<ProjectDetails />
-			<Container>
+			<h2 className="h3" style={{ textAlign: 'center' }}>
+				Additional projects
+			</h2>
+			<AdditionalProjects>
 				{projectData.map((obj) => {
 					return (
 						<Card
@@ -24,15 +27,22 @@ function Portfolio() {
 						/>
 					)
 				})}
-			</Container>
-		</>
+			</AdditionalProjects>
+		</Container>
 	)
 }
 
 const Container = styled.div`
-	min-height: 100vh;
 	width: 100vw;
-	padding: 100px;
+	display: grid;
+	justify-content: center;
+	padding-bottom: 20px;
+`
+
+const AdditionalProjects = styled.div`
+	/* min-height: 100vh; */
+	width: 100vw;
+	padding: 20px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;

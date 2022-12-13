@@ -43,7 +43,7 @@ function TechStack() {
 				<SiExpress className="medium" />
 				<FaNode className="medium" />
 				<p>
-					<span className="en">I understand </span>
+					<span className="en">I work with </span>
 					<span className="fr">Je connais</span>
 				</p>
 				<SiGit className="small" />

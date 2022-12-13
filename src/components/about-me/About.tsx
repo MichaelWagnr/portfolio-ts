@@ -3,37 +3,36 @@ import Header from '../Header'
 
 function About() {
 	return (
-		<>
+		<Container>
 			<Header />
-			<Container>
+			<AboutMe>
 				<div className="left">
 					Hacking Databases <br /> 2017
 				</div>
 				<div className="center">
-					While working as a production manager for a food distributer, our 3rd
-					party backend software was retired. Two Python developers were brought
-					in to work on a replacement, during which time, managers were given
-					read-only database access and a handful of helpful queries to
-					copy/paste. I spent a weekend deepdiving SQL tutorials, inspired by
-					our CEO who taught himself SQL in order to better parse the raw data.
-					I began clumsily writing client, order and inventory queries for other
-					middle managers. Soon after, I continued my self-study with Python -
-					the language our software was being rebuilt in.
+					While working as a production manager for a food distributer, two
+					Python developers were brought on to work on a replacement
+					administrative panel. During this time, managers were given read-only
+					database access and a handful of helpful queries to copy/paste. I
+					spent a weekend watching SQL tutorials - inspired by our CEO who
+					taught himself SQL - in order to better parse the raw data. I began
+					writing client, order and inventory queries for other middle managers,
+					later continuing my self-study with Python - the language our software
+					was being rebuilt in.
 				</div>
 				<div className="left">
 					Sink or swim <br /> 2020
 				</div>
 				<div className="center">
 					After relocating to Montreal, I shifted my focus towards Web
-					Development - Studying from textbooks and online courses 2-3 hours per
-					day while working full-time during the pandemic. I would often fit an
-					extra hour of listening to Web Development-related podcasts during
-					lunch breaks and long walks. Winter 2022, I completed a 3 month Full
-					Stack Web Development diploma through Concordia University. I had the
-					fortune of committing to this program full-time, 50-60 hours per week,
-					finishing all optional and extra-credit assignments as well as diving
-					deep into additional online course material on subjects not covered by
-					the program - TypeScript, Regular Expressions, Animation Libraries.
+					Development. I studied from textbooks and online courses 2-3 hours per
+					day while working full-time. I would often fit an extra hour of
+					listening to Web Development-related podcasts during lunch breaks and
+					long walks. Winter 2022, I obtained a Full Stack Web Development
+					diploma through Concordia University. I had the fortune of committing
+					to this program full-time, 50-60 hours per week, finishing
+					extra-credit assignments as well as pursuing additional online course
+					material on subjects not covered by the program.
 				</div>
 				<div className="right"></div>
 				<div className="left">
@@ -42,7 +41,7 @@ function About() {
 				<div className="center">
 					I was a computer enthusiast from a very young age. Our first family
 					computer ran an older operating system that would boot up to a black
-					screen with green text and a shell prompt, where I would 'CD' through
+					screen with green text and a shell prompt, where I would 'cd' through
 					directories to find and play MSDOS Freeware games like Commander Keen.
 					When I was a child, my father brought me to a Science and Technology
 					exhibit at the University of Saskatchewan, where we entered a raffle
@@ -59,27 +58,31 @@ function About() {
 					2015
 				</div>
 				<div className="center">
-					I believe there to be a huge overlap in Coding and Music. I owe a lot
-					to my musical background. A guitarist for many years, I'm at home
-					practicing challenging material for hours at a time. In 2015, I
-					started collecting synthesizers and drum machines. Each new piece of
-					equipment came with an extensive user's manual, descibing it's
-					features. I delighted in deep-diving into each new aquisition,
-					learning how it worked under the hood and testing hypothesises as to
-					how they could be combined together. I find myself in a similar
-					creative mindset whenever I'm pages deep into library/framework
+					I owe a lot to my musical background. As a guitarist of many years,
+					I'm comfortable iterating over challenging material for hours at a
+					time. I collect synthesizers and samplers. Each new piece of equipment
+					comes with an extensive user's manual and I delight in researching
+					each new aquisition, learning how it works and testing hypothesises as
+					to how they can be combined together. I find myself in a similar
+					creative mindset whenever I'm pages into library/framework
 					documentation and contemplating how different tech can be woven
 					together.
 				</div>
 				<div className="right"></div>
-			</Container>
-		</>
+			</AboutMe>
+		</Container>
 	)
 }
 
 const Container = styled.div`
+	width: 100vw;
+	display: grid;
+	justify-content: center;
+`
+
+const AboutMe = styled.div`
 	width: 80%;
-	height: 80%;
+	height: fit-content;
 	padding: 20px;
 	margin: 100px auto 40px;
 	border: 1px solid var(--secondary-fg);

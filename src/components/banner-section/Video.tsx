@@ -99,13 +99,19 @@ const Container = styled.div`
 
 	#video {
 		overflow-x: hidden;
-		width: 1440px;
-		height: calc(100vh + 100px);
+		width: 1600px;
+		/* height: 723px; */
+		/* height: calc(100vh + 100px); */
 		z-index: -2;
 		position: fixed;
 		left: 0px;
 		top: -100px;
 		filter: brightness(85%);
+
+		@media only screen and (min-width: 1441px) {
+			width: 1920px;
+			height: 1080px;
+		}
 	}
 `
 
