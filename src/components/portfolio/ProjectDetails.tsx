@@ -55,9 +55,9 @@ function ProjectDetails() {
 					<p>
 						One of the principle challenges of this project was working with the
 						Web MIDI API and bridging the gap between old and modern tech. At
-						one point I needed "the lowest 7 bits of the two\'s complement sum
-						of all data bytes" for each patch, which required research outside
-						the typical realm of JavaScript/React. This was also a massive
+						one point I needed "the lowest 7 bits of the two's complement sum of
+						all data bytes" for each patch, which required research outside the
+						typical realm of JavaScript/React. This was also a massive
 						springboard into the world of SVGs and I had a lot of fun building
 						the graphical user interface and determining ways of targeting parts
 						of the SVG with click events in order to emulate a software GUI.
