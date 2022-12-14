@@ -20,6 +20,7 @@ export const projectData = [
 		githubUrl: '',
 		projectUrl: '',
 		imgSrc: '/portfolio.png',
+		imgAlt: 'View of portfolio site',
 	},
 	{
 		title: 'Royal Mint',
@@ -31,5 +32,6 @@ export const projectData = [
 		githubUrl: 'https://github.com/MichaelWagnr/shared-expense-app',
 		projectUrl: 'https://michaelwagnr.github.io/shared-expense-app/',
 		imgSrc: '/royalmint.png',
+		imgAlt: 'View of main app UI',
 	},
 ]

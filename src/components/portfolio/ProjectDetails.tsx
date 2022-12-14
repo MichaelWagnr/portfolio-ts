@@ -24,7 +24,11 @@ function ProjectDetails() {
 				</div>
 			</Banner>
 			<Details>
-				<img src="/patchdiverbrowser.png" className="browser-view" />
+				<img
+					src="/patchdiverbrowser.png"
+					className="browser-view"
+					alt="Patch Diver browser view of editor"
+				/>
 				<div className="info">
 					<p className="heading">Description:</p>
 					<p>
