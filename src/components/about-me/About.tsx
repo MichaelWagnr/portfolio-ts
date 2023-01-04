@@ -7,6 +7,21 @@ function About() {
 			<Header />
 			<AboutMe>
 				<div className="left">
+					Sink or swim <br /> 2020
+				</div>
+				<div className="center">
+					After relocating to Montreal, I shifted my focus towards Web
+					Development. I studied from textbooks and online courses 2-3 hours per
+					day while working full-time. I would often fit an extra hour of
+					listening to Web Development-related podcasts during lunch breaks and
+					long walks. Winter 2022, I obtained a Full Stack Web Development
+					diploma through Concordia University. I had the fortune of committing
+					to this program full-time, 50-60 hours per week, finishing
+					extra-credit assignments as well as pursuing additional online course
+					material on subjects not covered by the program.
+				</div>
+				<div className="right"></div>
+				<div className="left">
 					Hacking Databases <br /> 2017
 				</div>
 				<div className="center">
@@ -21,18 +36,20 @@ function About() {
 					was being rebuilt in.
 				</div>
 				<div className="left">
-					Sink or swim <br /> 2020
+					Music: My secret weapon
+					<br />
+					2015
 				</div>
 				<div className="center">
-					After relocating to Montreal, I shifted my focus towards Web
-					Development. I studied from textbooks and online courses 2-3 hours per
-					day while working full-time. I would often fit an extra hour of
-					listening to Web Development-related podcasts during lunch breaks and
-					long walks. Winter 2022, I obtained a Full Stack Web Development
-					diploma through Concordia University. I had the fortune of committing
-					to this program full-time, 50-60 hours per week, finishing
-					extra-credit assignments as well as pursuing additional online course
-					material on subjects not covered by the program.
+					I owe a lot to my musical background. As a guitarist of many years,
+					I'm comfortable iterating over challenging material for hours at a
+					time. I collect synthesizers and samplers. Each new piece of equipment
+					comes with an extensive user's manual and I delight in researching
+					each new aquisition, learning how it works and testing hypothesises as
+					to how they can be combined together. I find myself in a similar
+					creative mindset whenever I'm pages into library/framework
+					documentation and contemplating how different tech can be woven
+					together.
 				</div>
 				<div className="right"></div>
 				<div className="left">
@@ -50,23 +67,6 @@ function About() {
 					Netscape and very slow connections. I watched the internet evolve to
 					present day, on occasion making fan-pages with Geocities and AngelFire
 					and catching glimpses of HTML.
-				</div>
-				<div className="right"></div>
-				<div className="left">
-					Music: My secret weapon
-					<br />
-					2015
-				</div>
-				<div className="center">
-					I owe a lot to my musical background. As a guitarist of many years,
-					I'm comfortable iterating over challenging material for hours at a
-					time. I collect synthesizers and samplers. Each new piece of equipment
-					comes with an extensive user's manual and I delight in researching
-					each new aquisition, learning how it works and testing hypothesises as
-					to how they can be combined together. I find myself in a similar
-					creative mindset whenever I'm pages into library/framework
-					documentation and contemplating how different tech can be woven
-					together.
 				</div>
 				<div className="right"></div>
 			</AboutMe>

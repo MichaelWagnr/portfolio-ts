@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 function Links() {
 	return (
 		<Container>
+			<AboveTheFold>
+				<p className="h3">Michael Wagner</p>
+				<p className="h4 title">Web Developer</p>
+			</AboveTheFold>
 			<ExternalLinks>
 				<a href="https://www.linkedin.com/in/michael-wagner-9339881a0/">
 					<GrLinkedinOption className="icon" />
@@ -96,6 +100,16 @@ const Container = styled.div`
 const ExternalLinks = styled.div`
 	width: fit-content;
 	margin: -15px auto 40px;
+`
+
+const AboveTheFold = styled.div`
+	position: relative;
+	bottom: 26px;
+	text-align: center;
+
+	.title {
+		color: var(--secondary-fg-light);
+	}
 `
 
 export default Links
