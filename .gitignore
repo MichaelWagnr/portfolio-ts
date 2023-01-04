@@ -25,4 +25,4 @@ dist-ssr
 *.sw?
 
 References.md
-public/imageSequence/
+# public/imageSequence/
