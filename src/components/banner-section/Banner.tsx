@@ -115,14 +115,14 @@ function Banner() {
 				techRef.current,
 				{
 					opacity: 0,
-					top: isDesktop ? 200 : 500,
+					top: isDesktop ? '50vh' : 500,
 					right: isDesktop ? 40 : '',
 					gridColumn: isDesktop ? '' : '1 / span 2',
 					alignSelf: isDesktop ? '' : 'center',
 				},
 				{
 					opacity: 1,
-					top: isDesktop ? 140 : 280,
+					top: isDesktop ? '21vh' : 280,
 					gridColumn: isDesktop ? '' : '1 / span 2',
 					alignSelf: isDesktop ? '' : 'center',
 					duration: 2,
