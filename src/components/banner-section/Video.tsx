@@ -113,8 +113,8 @@ const Container = styled.div`
 			height: 1080px;
 		}
 		@media only screen and (min-width: 1920px) {
-			width: 100%;
-			height: 100%;
+			width: 120%;
+			height: 120%;
 		}
 	}
 `

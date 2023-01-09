@@ -239,7 +239,7 @@ function Banner() {
 }
 
 const TimeLine = styled.div`
-	height: 8000px;
+	height: 9000px;
 `
 
 const Container = styled.section`
