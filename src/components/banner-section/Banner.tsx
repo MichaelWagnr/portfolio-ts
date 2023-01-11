@@ -208,7 +208,7 @@ function Banner() {
 						⋅Musicien
 					</p>
 					<p ref={listBFrRef} className="h2 list">
-						⋅Apprenant Curieux
+						⋅Curieux de Nature
 					</p>
 					<p ref={listCFrRef} className="h2 list">
 						⋅Fan de Fitness
