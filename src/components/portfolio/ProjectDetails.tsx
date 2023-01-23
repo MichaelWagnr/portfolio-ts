@@ -78,7 +78,7 @@ function ProjectDetails() {
 					<p className="heading">Links:</p>
 					<a href="https://github.com/MichaelWagnr/patchdiver">Github</a>
 					<br />
-					<a href="https://vimeo.com/777719851">Vimeo</a>
+					<a href="https://vimeo.com/791977987">Vimeo</a>
 				</div>
 			</Details>
 		</Container>
